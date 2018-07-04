@@ -1,3 +1,39 @@
-<h2>
-    User Template Loaded!
-</h2>
+<div class="container">
+<ul class="list-unstyled">
+    <li class="well">
+        <div class="row">
+            <div class="col-xs-2 col-sm-2 col-md-2">
+                <img [src]="user.image" 
+                    class="img-responsive img-circle">
+                <br><hr>
+                <button class="btn btn-info btn-sm" 
+                    (click)="moreInfo(user)">
+                    More Info
+                </button>
+            </div>
+            <div class="col-xs-8 col-sm-8 col-md-8">
+                <h1>{{ user.firstName }} {{ user.lastName }}</h1>
+                <p> Income : {{ user.income}} </p>
+                <!-- using Interpolation -->
+                <p> Date of Birth : {{ user.dob }}</p>
+                <!-- Property binding syntax -->
+                <p>Date of Birth : 
+                    <span [innerHTML]="user.dob"></span>
+                </p>
+            
+            <br>
+            <em>
+                Total Votes : {{ user.vote }}
+                <!-- <input type="number" 
+                    [value]="user.vote"
+                    (change)="user.vote=$event.target.value"> -->
+                <input type="number" [(ngModel)]="user.vote">
+            </em>
+        </div>
+        </div>
+        
+        
+    </li>
+
+</ul>
+</div>
