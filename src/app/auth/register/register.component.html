@@ -1,0 +1,40 @@
+<div class="jumbotron">
+  <h1 class="text-center">Register</h1>
+  <form [formGroup]="registerForm">
+    <div class="form-group">
+      <label for="username">Username : </label>
+      <input type="text" 
+        name="username" 
+        class="form-control"
+        [formControl]="username">
+        <div [hidden]="username.valid || username.untouched">
+          Some Problem with Username.
+          <div [hidden]="!username.hasError('required')">
+            Username is required field.
+          </div>
+          <div [hidden]="!username.hasError('minlength')">
+            Username should at least have 5 characters.
+          </div>
+        </div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password : </label>
+      <input type="password" 
+        name="password" 
+        class="form-control"
+        [formControl]="password">
+        <div [hidden]="password.valid || password.untouched">
+          Some Problem with password.
+          <div [hidden]="!password.hasError('required')">
+            Password is required field.
+          </div>
+          <div [hidden]="!password.hasError('needExclamation')">
+            Password must have exclamation mark.
+          </div>
+        </div>
+    </div>
+    <button (click)="register()" class="btn btn-primary btn-lg">
+      Register
+    </button>
+  </form>
+</div>

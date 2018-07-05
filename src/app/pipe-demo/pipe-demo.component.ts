@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 
 @Component({
   selector: 'app-pipe-demo',
@@ -7,6 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PipeDemoComponent implements OnInit {
   filteredStatus= "";
+
+  addTodo(){
+    this.todos.push({
+      label : "New Work", 
+      status : "pending"
+    });
+  }
+
   todos = [{
     label : "Some Work",
     status : 'pending'

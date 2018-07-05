@@ -5,6 +5,8 @@
 
 <div class="container">
   <input type="text" [(ngModel)]="filteredStatus">
+  <hr>
+  <button class="btn btn-default" (click)="addTodo()">Add</button>
 <ul class="list-group">
   <li class="list-group-item" 
     *ngFor="let todo of todos | filter : filteredStatus : 'status'">

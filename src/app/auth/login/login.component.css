@@ -1,0 +1,12 @@
+.ng-invalid.ng-touched[name="username"]{
+    border-bottom: 2px red solid;
+}
+.ng-valid.ng-touched[name="username"]{
+    border-bottom: 2px green solid;
+}
+.ng-invalid.ng-touched[name="password"]{
+    border-bottom: 2px red solid;
+}
+.ng-valid.ng-touched[name="password"]{
+    border-bottom: 2px green solid;
+}
