@@ -1,7 +1,7 @@
 
 <div class="container">
 <h2>Title from Parent : {{ title }}</h2>
-
+<!-- {{ users | json }} -->
 </div>
 
 <ng-content select="header"></ng-content>
@@ -29,17 +29,17 @@
             </p>
         </ng-template>
         <div class="col-xs-8 col-sm-8 col-md-8">
-            <h1 appHighlight [myColor]="myColor">{{ user.firstName }} {{ user.lastName }}</h1>
+            <h1 appHighlight [myColor]="myColor">{{ user.firstName | uppercase }} {{ user.lastName | uppercase }}</h1>
             <!-- <ng-template [ngIf]="user.isWorking">
                 <p></p>
             </ng-template> -->
             <p *appUnless="!user.isWorking">
-                income : {{ user.income }}
+                income : {{ user.income | currency : 'EUR' }}
             </p>
             <!-- <p *ngIf="user.isWorking; else elseTemplate"> Income : {{ user.income}} </p> -->
             <!-- using Interpolation -->
             <p [ngClass]="{'myBorder' : isEven, 'decoration' : isOdd}"> Date of Birth : {{ user.dob }}</p>
-            <p [ngClass]="myBorderStyle"> Date of Birth : {{ user.dob }}</p>
+            <p [ngClass]="myBorderStyle"> Date of Birth : {{ user.dob | date : 'MM/dd/yyyy'}}</p>
             <!-- Property binding syntax -->
             <!-- <p>Date of Birth : 
                 <span [innerHTML]="user.dob"></span>

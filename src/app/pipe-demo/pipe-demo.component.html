@@ -1,0 +1,17 @@
+<h1>
+  Contact Number : {{ contact_no | countrycode: '82' }} <br>
+  Data : {{ data | async | uppercase }}
+</h1>
+
+<div class="container">
+  <input type="text" [(ngModel)]="filteredStatus">
+<ul class="list-group">
+  <li class="list-group-item" 
+    *ngFor="let todo of todos | filter : filteredStatus : 'status'">
+    {{ todo.label }} 
+    <span class="badge">
+      {{ todo.status}}
+    </span>
+  </li>
+</ul>
+</div>

@@ -18,5 +18,7 @@ export class UnlessDirective {
     }
   }
   constructor(private templateRef: TemplateRef<any>,
-    private vcRef: ViewContainerRef) { }
+    private vcRef: ViewContainerRef) { 
+      console.log(this.templateRef);
+    }
 }
