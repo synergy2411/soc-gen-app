@@ -37,7 +37,7 @@ export class UserComponent
         myBorder : false,
         decoration :true
     }
-
+    myColor : string = 'red';
     moreInfo(user : User){
         this.myBorderStyle.myBorder = true;
         this.myBorderStyle.decoration = false;
