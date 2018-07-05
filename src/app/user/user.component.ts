@@ -33,8 +33,14 @@ export class UserComponent
     OnDestroy{
     @Input('xyz') users : User[];
     @Input('title') title : string;
+    myBorderStyle = {
+        myBorder : false,
+        decoration :true
+    }
 
     moreInfo(user : User){
+        this.myBorderStyle.myBorder = true;
+        this.myBorderStyle.decoration = false;
         alert(`${user.firstName} is working with ${user.company}!!!`);
     }
     constructor(){

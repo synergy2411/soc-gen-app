@@ -1,7 +1,7 @@
 
 <div class="container">
-    <h2>Title from Parent : {{ title }}</h2>
-    
+<h2>Title from Parent : {{ title }}</h2>
+
 </div>
 
 <ng-content select="header"></ng-content>
@@ -9,38 +9,47 @@
 <br>
 <div class="container">
 <ul class="list-unstyled">
-    <li class="well" *ngFor="let user of users">
-        <div class="row">
-            <div class="col-xs-2 col-sm-2 col-md-2">
-                <img [src]="user.image" 
-                    class="img-responsive img-circle">
-                <br><hr>
-                <button class="btn btn-info btn-sm" 
-                    (click)="moreInfo(user)">
-                    More Info
-                </button>
-            </div>
-            <div class="col-xs-8 col-sm-8 col-md-8">
-                <h1>{{ user.firstName }} {{ user.lastName }}</h1>
-                <p> Income : {{ user.income}} </p>
-                <!-- using Interpolation -->
-                <p> Date of Birth : {{ user.dob }}</p>
-                <!-- Property binding syntax -->
-                <p>Date of Birth : 
-                    <span [innerHTML]="user.dob"></span>
-                </p>
-                <p><ng-content select=".section"></ng-content></p>
+<li class="well" *ngFor="let user of users; index as i; first as isFirst; last as isLast; even as isEven; odd as isOdd">
+    <div class="row">
+        <div class="col-xs-2 col-sm-2 col-md-2">
+            {{ i }}
             <br>
-            <em>
-                Total Votes : {{ user.vote }}
-                <!-- <input type="number" 
-                    [value]="user.vote"
-                    (change)="user.vote=$event.target.value"> -->
-                <input type="number" [(ngModel)]="user.vote">
-            </em>
+            is this Even ? {{ isEven }}
+            <img [src]="user.image" 
+                class="img-responsive img-circle">
+            <br><hr>
+            <button class="btn btn-info btn-sm" 
+                (click)="moreInfo(user)">
+                More Info
+            </button>
         </div>
-        </div>
-    </li>
+        <ng-template #elseTemplate>
+            <p>
+                {{user.firstName }} is not working now!
+            </p>
+        </ng-template>
+        <div class="col-xs-8 col-sm-8 col-md-8">
+            <h1>{{ user.firstName }} {{ user.lastName }}</h1>
+            <p *ngIf="user.isWorking; else elseTemplate"> Income : {{ user.income}} </p>
+            <!-- using Interpolation -->
+            <p [ngClass]="{'myBorder' : isEven, 'decoration' : isOdd}"> Date of Birth : {{ user.dob }}</p>
+            <p [ngClass]="myBorderStyle"> Date of Birth : {{ user.dob }}</p>
+            <!-- Property binding syntax -->
+            <!-- <p>Date of Birth : 
+                <span [innerHTML]="user.dob"></span>
+            </p> -->
+            <p><ng-content select=".section"></ng-content></p>
+        <br>
+        <em>
+            Total Votes : {{ user.vote }}
+            <!-- <input type="number" 
+                [value]="user.vote"
+                (change)="user.vote=$event.target.value"> -->
+            <input type="number" [(ngModel)]="user.vote">
+        </em>
+    </div>
+    </div>
+</li>
 </ul>
 <ng-content select="footer"></ng-content>
 </div>
