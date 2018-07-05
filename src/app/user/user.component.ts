@@ -1,4 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, 
+    Input,
+    OnChanges,
+    OnInit,
+    DoCheck,
+    AfterContentInit,
+    AfterContentChecked,
+    AfterViewInit,
+    AfterViewChecked,
+    OnDestroy, 
+    SimpleChanges} from '@angular/core';
+import { User } from '../model/user';
 
 @Component({
     selector : 'app-user',
@@ -11,18 +22,33 @@ import { Component } from '@angular/core';
     //     }
     // `]
 })
-export class UserComponent{
-    moreInfo(user : any){
+export class UserComponent 
+    implements OnChanges,
+    OnInit,
+    DoCheck,
+    AfterContentInit,
+    AfterContentChecked,
+    AfterViewInit,
+    AfterViewChecked,
+    OnDestroy{
+    @Input('xyz') users : User[];
+    @Input('title') title : string;
+
+    moreInfo(user : User){
         alert(`${user.firstName} is working with ${user.company}!!!`);
     }
-    user = {
-        firstName : "Bill",
-        lastName : "Gates",
-        dob : new Date("Dec 21, 1964"),
-        income : 50000,
-        isWorking : true,
-        company : "Microsoft",
-        image : "assets/images/bill.jpg",
-        vote : 120
+    constructor(){
+        console.log("constructor");
     }
+    ngOnChanges(changes : SimpleChanges){
+        console.log("ngOnChanges");
+        console.log(changes);
+    }
+    ngOnInit(){console.log("ngOnInit")}
+    ngDoCheck(){console.log("ngDoCheck")}
+    ngAfterContentInit(){console.log("ngAfterContentInit")}
+    ngAfterContentChecked(){console.log("ngAfterContentChecked")}
+    ngAfterViewInit(){console.log("ngAfterViewInit")}
+    ngAfterViewChecked(){console.log("ngAfterViewChecked")}
+    ngOnDestroy(){console.log("ngOnDestroy")}
 }

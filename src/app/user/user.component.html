@@ -1,6 +1,15 @@
+
+<div class="container">
+    <h2>Title from Parent : {{ title }}</h2>
+    
+</div>
+
+<ng-content select="header"></ng-content>
+
+<br>
 <div class="container">
 <ul class="list-unstyled">
-    <li class="well">
+    <li class="well" *ngFor="let user of users">
         <div class="row">
             <div class="col-xs-2 col-sm-2 col-md-2">
                 <img [src]="user.image" 
@@ -20,7 +29,7 @@
                 <p>Date of Birth : 
                     <span [innerHTML]="user.dob"></span>
                 </p>
-            
+                <p><ng-content select=".section"></ng-content></p>
             <br>
             <em>
                 Total Votes : {{ user.vote }}
@@ -31,9 +40,7 @@
             </em>
         </div>
         </div>
-        
-        
     </li>
-
 </ul>
+<ng-content select="footer"></ng-content>
 </div>

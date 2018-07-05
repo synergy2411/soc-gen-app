@@ -2,11 +2,16 @@
 <div style="text-align:center">
   <h1>
     Welcome to {{ title }}!
+    <input type="text" [(ngModel)]="title">
   </h1>
  </div>
 
  <div class="container">
-   <app-user></app-user>
+   <app-user [xyz]="users" [title]="title">
+     <header>{{ headerInfo }}</header>
+     <main class="section"> Main Contents </main>
+     <footer>Some Footer Info</footer>
+   </app-user>
  </div>
 
  <div>
