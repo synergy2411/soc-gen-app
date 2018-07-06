@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { USER_DATA } from '../data/mock';
 import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import { User } from '../model/user';
 
@@ -15,5 +16,13 @@ export class UserService {
             // return userdata;
         // return USER_DATA;
     }
-    constructor(private http : Http){}
+    getApiData(){
+        this.httpClient.get<User[]>("https://soc-gen-app.firebaseio.com/userdata.json")
+            .subscribe(data=>console.log(data));
+    }
+    constructor(private http : Http,
+                private httpClient : HttpClient){}
 }
+
+
+// npm install firebase --save

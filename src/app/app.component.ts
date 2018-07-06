@@ -22,5 +22,6 @@ export class AppComponent {
     //this.users = this.userService.getUserData();
     this.userService.getUserData()
       .subscribe(data=>this.users = data);
+      this.userService.getApiData();
   }
 }
