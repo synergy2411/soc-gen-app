@@ -4,8 +4,10 @@
   <ul class="list-unstyled nav navbar-nav navbar-default">
     <li><a [routerLink]="['login']">Home</a></li>
     <li><a [routerLink]="['pipe']">Pipe</a></li>
-    <li><a [routerLink]="['product']">Products</a></li>
+    <li><a [routerLink]="['product', 5]" [queryParams]="{'name' : 'iPhoneX'}">Products</a></li>
     <li><a [routerLink]="['register']">Register</a></li>
+    <li><a [routerLink]="['employee']">Employee</a></li>
+    <li><a [routerLink]="['lazy']">Lazy</a></li>
   </ul>
 </div>
 

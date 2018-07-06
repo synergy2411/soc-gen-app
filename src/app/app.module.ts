@@ -4,6 +4,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { EmployeeModule } from './employee-module/employee.module';
+
 
 import { AppComponent } from './app.component';
 import { UserComponent } from './user/user.component';
@@ -46,7 +48,8 @@ import { LoginGaurdService } from './services/login-gaurd.service';
     ReactiveFormsModule,
     HttpModule,
     HttpClientModule,
-    RouterModule.forRoot(APP_ROUTES)
+    RouterModule.forRoot(APP_ROUTES),
+    EmployeeModule
   ],
   providers: [ UserService, AuthService, LoginGaurdService,
     {

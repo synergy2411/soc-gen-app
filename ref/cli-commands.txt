@@ -1,0 +1,11 @@
+npm install @angular/cli -g
+ng new <PROJECT_NAME>
+cd <PROJECT_NAME>
+ng serve
+ng -v
+ng generate component <COMPONENT_NAME>
+ng g c <COMP_NAME>
+ng g s <SERVICE_NAME>
+ng g d <DIRECTIVE_NAME>
+ng g p <PIPE_NAME>
+ng g m <MODULE_NAME>

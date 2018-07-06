@@ -6,6 +6,7 @@ import { ProductComponent } from './product/product.component';
 import { OverviewComponent } from './product/overview/overview.component';
 import { SpecificationComponent } from './product/specification/specification.component';
 import { LoginGaurdService } from './services/login-gaurd.service';
+import { EmployeeComponent } from './employee-module/employee/employee.component';
 
 export const APP_ROUTES : Routes = [
     {
@@ -22,7 +23,7 @@ export const APP_ROUTES : Routes = [
         path : 'pipe',
         component : PipeDemoComponent
     },{
-        path : 'product',
+        path : 'product/:id',
         component : ProductComponent,
         canActivate : [LoginGaurdService],
         children : [{
@@ -32,6 +33,12 @@ export const APP_ROUTES : Routes = [
             path : 'spec',
             component : SpecificationComponent
         }]
+    },{
+        path : 'employee',
+        component : EmployeeComponent
+    },{
+        path : 'lazy',
+        loadChildren : 'app/lazy/lazy.module#LazyModule'
     }, {
         path : "**",
         redirectTo : 'login',
