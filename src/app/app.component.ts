@@ -19,6 +19,8 @@ export class AppComponent {
   }
   ngOnInit(){
     // this.users = USER_DATA;
-    this.users = this.userService.getUserData();
+    //this.users = this.userService.getUserData();
+    this.userService.getUserData()
+      .subscribe(data=>this.users = data);
   }
 }
