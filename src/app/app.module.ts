@@ -15,6 +15,7 @@ import { FilterPipe } from './pipes/filter.pipe';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { UserService } from './services/user.service';
+import { AuthService } from './services/auth.service';
 
 
 @NgModule({
@@ -37,7 +38,7 @@ import { UserService } from './services/user.service';
     HttpModule,
     HttpClientModule
   ],
-  providers: [ UserService ],
+  providers: [ UserService, AuthService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { User } from './model/user';
 import { UserService } from './services/user.service';
+import * as firebase from 'firebase';
+
 // import { USER_DATA } from './data/mock';
 
 @Component({
@@ -18,6 +20,10 @@ export class AppComponent {
     this.userService.counter++;
   }
   ngOnInit(){
+    firebase.initializeApp({
+      apiKey: "AIzaSyAqdZNtqEobRa4HUpmhPdA_QjcDM3ultzg",
+      authDomain: "soc-gen-app.firebaseapp.com"
+    });
     // this.users = USER_DATA;
     //this.users = this.userService.getUserData();
     this.userService.getUserData()
