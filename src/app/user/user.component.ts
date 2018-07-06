@@ -25,14 +25,15 @@ import { UserService } from '../services/user.service';
     // `]
 })
 export class UserComponent 
-    implements OnChanges,
-    OnInit,
-    DoCheck,
-    AfterContentInit,
-    AfterContentChecked,
-    AfterViewInit,
-    AfterViewChecked,
-    OnDestroy{
+    // implements OnChanges,
+    // OnInit,
+    // DoCheck,
+    // AfterContentInit,
+    // AfterContentChecked,
+    // AfterViewInit,
+    // AfterViewChecked,
+    // OnDestroy
+    {
     @Input('xyz') users : User[];
     @Input('title') title : string;
     myBorderStyle = {
@@ -49,17 +50,17 @@ export class UserComponent
         this.userService.counter++;
     }
     constructor(public userService : UserService){
-        console.log("constructor");
+        //console.log("constructor");
     }
-    ngOnChanges(changes : SimpleChanges){
-        console.log("ngOnChanges");
-        console.log(changes);
-    }
-    ngOnInit(){console.log("ngOnInit")}
-    ngDoCheck(){console.log("ngDoCheck")}
-    ngAfterContentInit(){console.log("ngAfterContentInit")}
-    ngAfterContentChecked(){console.log("ngAfterContentChecked")}
-    ngAfterViewInit(){console.log("ngAfterViewInit")}
-    ngAfterViewChecked(){console.log("ngAfterViewChecked")}
-    ngOnDestroy(){console.log("ngOnDestroy")}
+    // ngOnChanges(changes : SimpleChanges){
+    //     console.log("ngOnChanges");
+    //     console.log(changes);
+    // }
+    // ngOnInit(){console.log("ngOnInit")}
+    // ngDoCheck(){console.log("ngDoCheck")}
+    // ngAfterContentInit(){console.log("ngAfterContentInit")}
+    // ngAfterContentChecked(){console.log("ngAfterContentChecked")}
+    // ngAfterViewInit(){console.log("ngAfterViewInit")}
+    // ngAfterViewChecked(){console.log("ngAfterViewChecked")}
+    // ngOnDestroy(){console.log("ngOnDestroy")}
 }

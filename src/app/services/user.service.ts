@@ -4,6 +4,7 @@ import { Http } from '@angular/http';
 import { HttpClient } from '@angular/common/http';
 import 'rxjs/add/operator/map';
 import { User } from '../model/user';
+import { AuthService } from './auth.service';
 
 @Injectable()
 export class UserService {
@@ -17,11 +18,12 @@ export class UserService {
         // return USER_DATA;
     }
     getApiData(){
-        this.httpClient.get<User[]>("https://soc-gen-app.firebaseio.com/userdata.json")
-            .subscribe(data=>console.log(data));
+        return this.httpClient.get<User[]>("https://soc-gen-app.firebaseio.com/userdata.json?auth="+this.authService.getToken())
+            
     }
     constructor(private http : Http,
-                private httpClient : HttpClient){}
+                private httpClient : HttpClient,
+                private authService : AuthService){}
 }
 
 
