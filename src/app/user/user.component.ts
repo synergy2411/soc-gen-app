@@ -10,12 +10,14 @@ import { Component,
     OnDestroy, 
     SimpleChanges} from '@angular/core';
 import { User } from '../model/user';
+import { UserService } from '../services/user.service';
 
 @Component({
     selector : 'app-user',
     // template : `<h2>User Component Loaded Successfully!</h2>`
     templateUrl : './user.component.html',
-    styleUrls : [`./user.component.css`]
+    styleUrls : [`./user.component.css`],
+    providers : [UserService]
     // styles : [`
     //     h2{
     //         color : darkblue;
@@ -43,7 +45,10 @@ export class UserComponent
         this.myBorderStyle.decoration = false;
         alert(`${user.firstName} is working with ${user.company}!!!`);
     }
-    constructor(){
+    increase(){
+        this.userService.counter++;
+    }
+    constructor(public userService : UserService){
         console.log("constructor");
     }
     ngOnChanges(changes : SimpleChanges){
