@@ -32,4 +32,7 @@ export class AuthService {
   }
   constructor() { }
 
+  isAuthenticated(){
+    return this.token !=null;
+  }
 }
